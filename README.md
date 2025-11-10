@@ -1,44 +1,15 @@
 # Procurement
 
-## Description
-The Procurement project is a Spring Boot–based service procurement system. It manages candidate information, resume parsing, job description matching, and authentication using a modular microservices architecture.
+The Procurement project is a Spring Boot–based service procurement system designed with a modular architecture. It manages candidate information, resume parsing, job description matching, and authentication. The project follows a microservices approach with separate modules for different functionalities.
 
-## Project Structure
-- **candidate-service:** Handles candidate data, resume parsing, and JD-skill matching.
-- **pit-auth-service:** Manages user authentication and authorization.
-- **ProcurementApplication.java:** Main entry point of the Spring Boot application.
-- **Gradle Wrapper Files:** Used for consistent build and project setup.
+It includes two main services: 
+1. **candidate-service** – Handles candidate data management, resume parsing using the Affinda API, and JD-skill matching.  
+2. **pit-auth-service** – Manages user authentication and authorization.
 
-## Technology Stack
-- Spring Boot  
-- Gradle  
-- MongoDB (or any NoSQL database)  
-- REST APIs  
-- External API integration (Affinda for resume parsing)
+The project uses Spring Boot, Gradle, MongoDB (or another NoSQL database), and REST APIs for communication between services. It provides an end-to-end platform for managing candidates, parsing resumes, matching skills to job descriptions, and securing access through authentication.
 
-## Purpose
-This system provides a platform for managing candidates, parsing resumes, matching skills with job descriptions, and handling authentication.
+Main class: **ProcurementApplication.java**  
+Build tool: **Gradle**  
+External Integration: **Affinda API (for resume parsing)**  
 
-## How to Run
-1. Clone the repository  
-   ```bash
-   git clone https://github.com/<your-username>/Procurement.git
-Build the project
-
-bash
-Copy code
-./gradlew clean build
-Run the application
-
-bash
-Copy code
-./gradlew bootRun
-Author
-Udaykumar Jewoor
-
-yaml
-Copy code
-
----
-
-Would you like me to make it auto-detect both services (`candidate-service` and `pit-auth-service`) with commands for each in the “How to Run” section?
+Developed by **Udaykumar Jewoor**
