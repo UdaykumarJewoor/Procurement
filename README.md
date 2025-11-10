@@ -1,15 +1,21 @@
 # Procurement
 
-The Procurement project is a Spring Boot–based service procurement system designed with a modular architecture. It manages candidate information, resume parsing, job description matching, and authentication. The project follows a microservices approach with separate modules for different functionalities.
+The Procurement project is a Spring Boot–based microservice application designed to streamline the service procurement process.  
+It manages candidate information, performs resume parsing, matches candidate skills with job descriptions, and tracks the submission and hiring workflow.
 
-It includes two main services: 
-1. **candidate-service** – Handles candidate data management, resume parsing using the Affinda API, and JD-skill matching.  
-2. **pit-auth-service** – Manages user authentication and authorization.
+## Features
+- Candidate CRUD operations  
+- Resume parsing and data extraction  
+- JD–skill matching functionality  
+- Candidate submission and status tracking  
+- Modular architecture for future procurement services  
 
-The project uses Spring Boot, Gradle, MongoDB (or another NoSQL database), and REST APIs for communication between services. It provides an end-to-end platform for managing candidates, parsing resumes, matching skills to job descriptions, and securing access through authentication.
+## Tech Stack
+- Backend: Spring Boot  
+- Build Tool: Gradle  
+- Database: MongoDB  
+- Libraries: Lombok  
+- API Style: RESTful Services  
 
-Main class: **ProcurementApplication.java**  
-Build tool: **Gradle**  
-External Integration: **Affinda API (for resume parsing)**  
-
-Developed by **Udaykumar Jewoor**
+## Overview
+This system forms the foundation for building a scalable service procurement platform integrating multiple microservices such as candidate management, job requisition tracking, and automated matching logic.
