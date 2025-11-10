@@ -1,0 +1,17 @@
+spring:
+  spring:
+    application:
+      name: procurement-service
+
+  data:
+    mongodb:
+      uri: mongodb+srv://bilalhayat1:axR1Is5KHEIxqbzq@cluster0.p1znd.mongodb.net/procurement
+      database: procurement
+      auto-index-creation: true
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 10MB
+
+server:
+  port: 8081

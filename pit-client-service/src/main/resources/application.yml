@@ -1,0 +1,114 @@
+spring:
+  application:
+    name: pit-auth-service
+    freemarker:
+      template-loader-path: classpath:/templates/
+      suffix: .ftl
+  profiles:
+    active: dev
+  data:
+    mongodb:
+      uri: mongodb+srv://sachinnimbal:rPAFsxE4cZGRbzFm@cluster0.nadek.mongodb.net/pit-main-updated?retryWrites=true&w=majority&ssl=true
+  servlet:
+    multipart:
+      enabled: true
+      max-file-size: 10MB
+      max-request-size: 10MB
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: sachinkumarn9@gmail.com
+    password: pvtr pnpt ehlh owzc
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+            required: true
+        debug: true
+  config:
+    import: "optional:consul:"
+  cloud:
+    consul:
+      config:
+        enabled: true
+      host: localhost
+      port: 8500
+      discovery:
+        register: true
+        enabled: true
+        deregister: false
+        prefer-ip-address: true
+        healthCheckPath: /actuator/health
+        healthCheckInterval: 60s  # Increased health check interval
+        health-check-critical-timeout: 2m  # Increased timeout to prevent fast deregistration
+        scheme: http
+        health-check-tls-skip-verify: true
+        register-health-check: true
+        heartbeat:
+          enabled: true  # Enables active service heartbeat
+        instance-id: ${spring.application.name}-${server.port}  # Unique instance ID
+
+server:
+  port: 8082
+media:
+  base:
+    dir: src/main/resources/Media/
+springdoc:
+  api-docs:
+    path: /api-docs
+  swagger-ui:
+    path: /swagger-ui.html
+    enabled: true
+security:
+  jwt:
+    secret-key: VGhpcyBpcyBhIHZlcnkgc3Ryb25nIHNlY3JldCBrZXkgZm9yIGp3dC4xMjM0NTY3ODk=
+    expiration-time: 3600000
+    refreshExpirationMs: 7200000
+    idTokenExpirationMs: 1800000
+logging:
+  level:
+    org.springframework.security: DEBUG
+    org.springframework.web: DEBUG
+    org.springframework.web.servlet.DispatcherServlet: DEBUG
+app:
+  master-admin:
+    role: MASTER-ADMIN
+    roleType: C-Suite
+    fName: Sachin
+    lName: Nimbal
+    email: sachin.nimbal@in.pradeepit.com
+    phone: 9900140463
+    password: Skn1631$$
+
+roles:
+  MASTER-ADMIN: "MASTER-ADMIN"
+  ADMIN: "ADMIN"
+  GUEST-USER: "GUEST-USER"
+  CLIENT: "CLIENT"
+  LEAD-HR: "LEAD-HR"
+  RECRUITER: "RECRUITER"
+
+enableSwagger: true
+enableLogging: true
+
+otp:
+  expiry-seconds: 120
+  check-interval: 10
+  freeze-timeout: 5
+  max-attempts: 3
+
+trash:
+  timeout: 30
+  age-in-days: 30
+  cleanup-interval: 10
+
+ui:
+  url-port: http://localhost:3000
+
+feign:
+  client:
+    config:
+      pit-auth-service:
+        url: http://localhost:8087
